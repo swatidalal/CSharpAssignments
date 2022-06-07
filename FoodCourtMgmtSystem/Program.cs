@@ -36,7 +36,7 @@ namespace FoodCourtMgmtSystem
             int id = ManageFoodItems.foodItemList.FirstOrDefault(x => x.Value.Item1 == "French fries").Key;
             int rate = ManageFoodItems.foodItemCostList[id];
 
-            ManageSales.salesList.Add(1, ("Hemant", "French fries", DateTime.Now, 2 * rate));
+            ManageSales.salesList.Add(1, ("Swati", "Veg rice", DateTime.Now, 2 * rate));
 
         TOP0:
             Console.WriteLine("---------------WELCOME TO FOOD COURT MANAGEMENT APP MENU---------------");
