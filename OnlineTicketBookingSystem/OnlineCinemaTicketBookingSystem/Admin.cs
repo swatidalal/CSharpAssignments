@@ -83,12 +83,13 @@ namespace OnlineCinemaTicketBookingSystem
             {
 
 
-                if (!File.Exists(@"C: \Users\LENOVO\Desktop\Training\MovieTicketBooking\movieDetails.txt"))
+                if (File.Exists(@"C: \Users\LENOVO\Desktop\Training\MovieTicketBooking\movieDetails.txt"))
                 {
                     Console.WriteLine("No Movie added yet");
                 }
                 else
                 {
+                    Console.WriteLine("file exits");
 
                     FileStream fileStreamObj = new FileStream(@"C:\Users\LENOVO\Desktop\Training\MovieTicketBooking\movieDetails.txt", FileMode.Open, FileAccess.Read);
                     StreamReader streamReaderObj = new StreamReader(fileStreamObj);
@@ -115,7 +116,7 @@ namespace OnlineCinemaTicketBookingSystem
             catch (Exception ex)
             {
                 Console.WriteLine("ERROR 404");
-                using (FileStream fileStreamObj2 = new FileStream(@"C:\Users\LENOVO\Desktop\Training\MovieTicketBooking\Log.txt", FileMode.Create, FileAccess.Write))
+                using (FileStream fileStreamObj2 = new FileStream(@"C:\Users\LENOVO\Desktop\Training\MovieTicketBooking\Log.txt", FileMode.Append, FileAccess.Write))
                 {
                     StreamWriter streamWriterObj = new StreamWriter(fileStreamObj2);
                     streamWriterObj.Write("Date : " + DateTime.Now.ToString() + " ");
