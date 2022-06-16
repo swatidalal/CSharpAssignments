@@ -109,12 +109,9 @@ namespace EventManagementSystem
                 itemsIdStringConcate += Console.ReadLine();
                 if (i != totalItems - 1)
                     itemsIdStringConcate += ",";
-            }//1,2,3,4
-            //calulating total expense in food items
-            string[] arr = itemsIdStringConcate.Split(',');
+            }         string[] arr = itemsIdStringConcate.Split(',');
             DataTable dtCost = ShowFoodItems();
             int total = 0;
-            //3,4
             for (int i = 0; i < dtCost.Rows.Count; i++)
             {
 
