@@ -29,7 +29,7 @@ namespace ConsoleBasedLibraryMgmt
 
             librarian.StoreBorrowerDetails(userName, userId, bookName);
             Console.WriteLine("Thanks for borrowing.");
-            Console.WriteLine("You have to pay 15 rs per day of a book");
+            //Console.WriteLine("You have to pay 15 rs per day of a book");
 
         }
 
@@ -68,6 +68,7 @@ namespace ConsoleBasedLibraryMgmt
         }
         public void ShowInventoryDetails()
         {
+            
             FileStream fileStreamObj = new FileStream(@"C:\Users\LENOVO\Desktop\Training\librarymgmt\inventoryDetails.txt", FileMode.Open, FileAccess.Read);
             StreamReader streamReaderObj = new StreamReader(fileStreamObj);
             Console.WriteLine("UserId\tuserName\tBill");

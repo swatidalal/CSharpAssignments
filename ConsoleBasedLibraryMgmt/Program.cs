@@ -13,26 +13,7 @@ namespace ConsoleBasedLibraryMgmt
 
         static void Main(string[] args)
         {
-            //    //User obj = new User();
-            //    //Console.WriteLine("user details");
-            //    //obj.UserDetails();
-
-            //    //Book obj1 = new Book();
-            //    //Console.WriteLine("book details");
-            //    //obj1.BookDetails();
-
-            //    //Book obj2 = new Book();
-            //    //Console.WriteLine(" Issue book details");
-            //    //obj2.Issue();
-            //    Administrator obj3 = new Administrator();
-            //    Console.WriteLine(" Issue book details");
-            //    obj3.ToIssueBook();
-
-            //    Console.WriteLine();
-
-
-            //}
-
+            
 
 
             Console.WriteLine("---------------WELCOME TO LIBRARY MANAGEMENT SYSTEM---------------");
@@ -53,7 +34,7 @@ namespace ConsoleBasedLibraryMgmt
                     Console.WriteLine("Please chooes one of the following action:");
                     Console.WriteLine("a. Add a book in the library.");
                     Console.WriteLine("b. Show the current available books in the library.");
-                    Console.WriteLine("c. Show current inventory details.");
+                   // Console.WriteLine("c. Show current inventory details.");
                     char choice1 = Convert.ToChar(Console.ReadLine());
                     switch (choice1)
                     {
@@ -67,9 +48,9 @@ namespace ConsoleBasedLibraryMgmt
                             librarian.ShowAvailableBooksInLibrary();
 
                             break;
-                        case 'c':
-                            Console.WriteLine("");
-                            users.ShowInventoryDetails();
+                       // case 'c':
+                         //   Console.WriteLine("");
+                          //  users.ShowInventoryDetails();
 
                             break;
                     }
