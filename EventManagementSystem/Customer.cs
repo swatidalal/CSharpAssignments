@@ -163,7 +163,7 @@ namespace EventManagementSystem
             //insert into Customer Table
 
             #region disconnected-mode
-            SqlConnection sqlConnection = new SqlConnection(sqlConnectionStr);//connection stablishmentg
+            SqlConnection sqlConnection = new SqlConnection(sqlConnectionStr);//connection 
             SqlDataAdapter sda = new SqlDataAdapter("insert into Customer values('" + name + "','" + city + "'," + mobile + ",'" + eventName + "','" + itemsIdStringConcate + "'," + DecorationId + "," + totalNoOfPerson + "," + total + ")", sqlConnection);
             DataTable dt1 = new DataTable();
             sda.Fill(dt1);
