@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
-
+using System.Net.Mail;
+using System.Net;
 
 namespace OrderAssignment
 {
@@ -57,11 +58,10 @@ namespace OrderAssignment
                     adapter.Fill(dataTable);
                     Console.WriteLine("Added Succesfully");
 
-                    //emailsend(Email, FName, LName);
+                    emailsend(Email, FName, LName);
 
 
-                    SendEmail.SendMailMethod($"{FName} {LName}" ,Email);
-
+                    
 
                 }
                 else
@@ -241,42 +241,43 @@ namespace OrderAssignment
                 }
 
                 return false;
-             }
+        }
 
-       //// void emailsend(string to, string firstname, string lastname)
-       // {
-       //     string from = "swati15091999@gmail.com";
-       //     string password = "12345";
-       //     string subject = "Welcome  Dear Customre";
-       //     string body = "<h1>Dear, " + firstname + " " + LName + "</h1>\nThanks for registering with us";
-       //     try
-       //     {
-       //         MailMessage message = new MailMessage();
-       //         SmtpClient smtp = new SmtpClient();
-       //         message.From = new MailAddress(from);
-       //         message.To.Add(new MailAddress(to));
-       //         message.Subject = subject;
-       //         message.IsBodyHtml = true; //to make message body as html  
-       //         message.Body = body;
-       //         smtp.Port = 587;
-       //         smtp.Host = "smtp.gmail.com"; //for gmail host  
-       //         smtp.EnableSsl = true;
-       //         smtp.UseDefaultCredentials = false;
-       //         smtp.Credentials = new NetworkCredential(from, password);
-       //         smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-       //         smtp.Send(message);
-
-
-
+        void emailsend(string to, string firstname, string lastname)
+        {
+            string from = "swati15091999@gmail.com";
+            string password = "etrytsqbiphzttyg";
+            string subject = "Welcome Dear Customer";
+            string body = "<h1>Dear, " + firstname + " " + lastname + " </h1>\nThanks for registering with us..Have a good day";
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+                message.From = new MailAddress(from);
+                message.To.Add(new MailAddress(to));
+                message.Subject = subject;
+                message.IsBodyHtml = true; //to make message body as html  
+                message.Body = body;
+                smtp.Port = 587;
+                smtp.Host = "smtp.gmail.com"; //for gmail host  
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential(from, password);
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+                Console.WriteLine("Mail Sent Succesfully");
 
 
-       //     }
-        //   catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.ToString());
-        //    }
 
-        //}
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+        }
 
     }
 }
