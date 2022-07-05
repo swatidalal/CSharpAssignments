@@ -87,64 +87,81 @@ namespace OrderAssignment
 
         public void UpdateCustomer()
         {
-            Update:
-
-            Console.WriteLine(" Enter Customer's First Name to Add");
-            FName = Console.ReadLine();
-
-            Console.WriteLine(" Enter Customer's Last Name to Add");
-            LName = Console.ReadLine();
-
-            Console.WriteLine(" Enter Customer's Phone No to Add");
-            Phone = int.Parse(Console.ReadLine());
+            
 
 
         email1:
 
-            Console.WriteLine(" Enter Email to Add");
+            Console.WriteLine(" Enter Email to Update");
             Email = Console.ReadLine();
 
             if (!mailValidation(Email))
 
             {
-                Console.WriteLine("Enter Some   Email..It can not be null");
+                Console.WriteLine("Enter valid Email.....");
                 goto email1;
 
             }
+
             if (Email != "")
             {
-                if (!CustomerExistOrNot(Email) && mailValidation(Email))
-                {
-                    SqlConnection sqlConnection = new SqlConnection(sqlConnectionStr);
-                    string sql = "update Item set Customer_Fname='" + FName + "' ,  Customer_Lname='" + LName + "' , Customer_Phone=" + Phone + " where Customer_Email= '" + Email+ "' ";
-                    SqlDataAdapter adapter = new SqlDataAdapter(sql, Connection);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    Console.WriteLine("Updated Succesfully");
 
+                if (CustomerExistOrNot(Email))
+                {
+
+
+                    Console.WriteLine(" Enter Customer's First Name to Update");
+                    FName = Console.ReadLine();
+
+                    Console.WriteLine(" Enter Customer's Last Name to Update");
+                    LName = Console.ReadLine();
+
+                    Console.WriteLine("Enter Phone of Customer to Update");
+                    Phone = int.Parse(Console.ReadLine());
+                    
+                    
+                    SqlConnection sqlConnection = new SqlConnection(sqlConnectionStr);//connection establishment
+                    string sql = "update Customer set Custmor_Fname= '" + FName + "' , Customer_Lname= '" + LName + "',Customer_Phone= " + Phone + "  where Customer_Email= '" + Email + "' ";
+
+                    SqlDataAdapter adp = new SqlDataAdapter(sql, Connection);
+                    DataTable dataTable = new DataTable();
+                    adp.Fill(dataTable);
+                    Console.WriteLine("Customer Updated Succesfully");
 
                 }
+
                 else
                 {
-                    Console.WriteLine("Please enter a Valid Email..it Already Exits");
-                    goto Update;
+                    Console.WriteLine("Item Does Not Match Please Enter some valid item name");
+                    goto email1;
                 }
-
-
             }
-
 
             else
             {
-                Console.WriteLine("Please enter  Email..It can't be null");
-                goto Update;
+                Console.WriteLine("Please Enter Some Value to update");
+                goto email1;
             }
+
+
+
 
 
 
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
 
         public void DeleteCustomer()
         { 
@@ -266,11 +283,6 @@ namespace OrderAssignment
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
                 Console.WriteLine("Mail Sent Succesfully");
-
-
-
-
-
             }
             catch (Exception ex)
             {

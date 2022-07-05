@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace OrderAssignment
 {
@@ -69,14 +65,15 @@ namespace OrderAssignment
         {
 
         top1:
+            Console.WriteLine(" Enter Item Name to Update");
+            ItemName = Console.ReadLine();
 
             if (ItemName != "")
             {
 
                 if (ItemExistOrNot(ItemName))
                 {
-                    Console.WriteLine(" Enter Item Name to Update");
-                    ItemName = Console.ReadLine();
+                  
                     Console.WriteLine("Enter Price of Item to Update");
                     ItemRate = Double.Parse(Console.ReadLine());
                     Console.WriteLine("Enter Quantity Of Item to Update");

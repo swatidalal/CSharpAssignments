@@ -44,10 +44,11 @@ namespace OrderAssignment
                             itemMaster.AddItem();
                             goto Portal;
                         case 2:
-                            itemMaster.DeleteItem();
+                            itemMaster.UpdateItem();
                             goto Portal;
                         case 3:
-                            itemMaster.UpdateItem();
+
+                            itemMaster.DeleteItem();
                             goto Portal;
                         case 4:
                             itemMaster.ListAllItems();
